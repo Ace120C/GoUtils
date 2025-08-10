@@ -6,20 +6,19 @@ import (
 	"strings"
 )
 
-var FileName string
+var DirName string
 
 func main()  {
 	Args := os.Args[1:]
 	if len(os.Args) > 0 {
-		FileName = strings.Join(Args, " ")
+		DirName = strings.Join(Args, " ")
 	}
 
-	for _, FileName := range Args {
-		f, err := os.Create(FileName)
+	for _, DirName := range Args {
+		err := os.Mkdir(DirName, 0750)
 		if err != nil {
 			fmt.Println("Error: ", err)
 		}
-		defer f.Close()
 	}
 
 }
