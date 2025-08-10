@@ -9,7 +9,7 @@ import (
 func main()  {
 	Now := time.Now()
 
-	Date := Now.Format(time.UnixDate)
+	layout := "Mon Jan 2 03:04:05 PM -0700 2006"
 
-	fmt.Println(Date)
+	fmt.Println(Now.Format(layout))
 }
